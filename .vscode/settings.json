@@ -6,5 +6,5 @@
     "typescript", // Enable .ts
     "typescriptreact" // Enable .tsx
   ],
-  "cSpell.words": ["qwik"]
+  "cSpell.words": ["daisyui", "qwik", "qwikdev"]
 }
