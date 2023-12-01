@@ -1,11 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Counter } from "../components/counter";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main>
+  <main class="flex justify-center items-center flex-col">
     <h1 class="text-blue-500">
       Welcome to <span class="text-gradient">Astro</span>
     </h1>
+    <Counter />
   </main>
 </Layout>
