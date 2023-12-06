@@ -1,0 +1,12 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Menu } from "@/components/menu";
+const pageTitle = "关于我";
+---
+
+<Layout title={pageTitle}>
+  <div>
+    <Menu />
+  </div>
+  <div class="container mx-auto mt-4">{pageTitle}</div>
+</Layout>

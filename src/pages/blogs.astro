@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Menu } from "@/components/menu";
+const allPosts = (await Astro.glob("../pages/blogs/*.md")) as any;
+---
+
+<Layout title="blog">
+  <div>
+    <Menu />
+  </div>
+  <main class="container mx-auto mt-4">
+    <div>blogs:</div>
+    <ul>
+      {
+        allPosts.map((post) => {
+          return (
+            <li>
+              <a href={post.url}>{post.frontmatter.title}</a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </main>
+</Layout>

@@ -7,16 +7,14 @@ export const Counter = component$(() => {
     console.log("toggle theme");
     // 判断当前是否有 dark-theme class
     const hasDarkTheme = document.body.classList.contains("dark");
-    console.log("hasDarkTheme", hasDarkTheme);
+    document.body.classList.toggle("dark");
+
+    // console.log("hasDarkTheme", hasDarkTheme);
     // 如果有就移除
     if (hasDarkTheme) {
-      document.body.classList.remove("dark");
-      // 给 html 添加 data-theme='dark'
       document.documentElement.setAttribute("data-theme", "dark");
       // 如果没有就添加
     } else {
-      document.body.classList.add("dark");
-      // 给 html 添加 data-theme='light'
       document.documentElement.setAttribute("data-theme", "light");
     }
   });

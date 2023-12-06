@@ -1,0 +1,36 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+// 动态路由需要对外暴露 getStaticPaths
+export async function getStaticPaths() {
+  const allPosts = (await Astro.glob("../blogs/*.md")) as any[];
+
+  return [
+    { params: { tag: "astro" }, props: { posts: allPosts } },
+    { params: { tag: "successes" }, props: { posts: allPosts } },
+    { params: { tag: "community" }, props: { posts: allPosts } },
+    { params: { tag: "blogging" }, props: { posts: allPosts } },
+    { params: { tag: "setbacks" }, props: { posts: allPosts } },
+    { params: { tag: "learning in public" }, props: { posts: allPosts } },
+  ];
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+const filteredPosts = posts.filter((post) =>
+  post.frontmatter.tags?.includes(tag)
+);
+---
+
+<BaseLayout title="tags">
+  <p>Posts tagged with {tag}</p>
+  <ul>
+    {
+      filteredPosts.map((post) => (
+        <li>
+          <a href={post.url}>{post.frontmatter.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

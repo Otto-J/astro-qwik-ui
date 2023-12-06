@@ -1,0 +1,11 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<div class="container mx-auto my-4">
+  <h1>{frontmatter.title}</h1>
+  <p>Written by {frontmatter.author}</p>
+  <div class="prose">
+    <slot />
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import daisyui from "daisyui";
+import typo from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -8,7 +9,7 @@ export default {
   },
   darkMode: "class",
 
-  plugins: [daisyui],
+  plugins: [daisyui, typo],
   daisyui: {
     darkTheme: "dark",
     themes: ["light", "dark"],
